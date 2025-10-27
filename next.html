@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Netflix Clone - OMDb</title>
+  <style>
+    body {
+      background-color: #141414;
+      color: white;
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+
+    h2 {
+      padding: 10px 20px;
+      margin: 0;
+    }
+
+    .slider-container {
+      position: relative;
+      max-width: 100%;
+      overflow: hidden;
+      padding: 0 20px 20px;
+    }
+
+    .slider {
+      display: flex;
+      gap: 10px;
+      transition: transform 0.4s ease-in-out;
+      overflow-x: auto;
+      scroll-behavior: smooth;
+    }
+
+    .slider img {
+      width: 200px;
+      height: 300px;
+      object-fit: cover;
+      border-radius: 8px;
+      flex-shrink: 0;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      cursor: pointer;
+    }
+    .slider img:hover {
+  transform: scale(1.1);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
+  z-index: 10;
+}
+    .prev, .next {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      background-color: rgba(0, 0, 0, 0.5);
+      border: none;
+      color: white;
+      font-size: 2rem;
+      padding: 10px;
+      cursor: pointer;
+      z-index: 2;
+    }
+    .slider {
+  display: flex;
+  gap: 10px;
+  transition: transform 0.4s ease-in-out;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+
+  /* Hides scrollbar */
+  scrollbar-width: none; /* Firefox */
+}
+.slider::-webkit-scrollbar {
+  display: none; /* Chrome, Safari */
+}
+
+
+    .prev:hover, .next:hover {
+      background-color: rgba(0, 0, 0, 0.8);
+    }
+
+    .prev {
+      left: 0;
+    }
+
+    .next {
+      right: 0;
+    }
+  </style>
+</head>
+<body>
+
+  <h2>Trending Now</h2>
+  <div class="slider-container">
+    <button class="prev">&#10094;</button>
+    <div class="slider" id="trending"></div>
+    <button class="next">&#10095;</button>
+  </div>
+
+  <h2>Top Rated</h2>
+  <div class="slider-container">
+    <button class="prev">&#10094;</button>
+    <div class="slider" id="topRated"></div>
+    <button class="next">&#10095;</button>
+  </div>
+
+  <h2>Upcoming Movies</h2>
+  <div class="slider-container">
+    <button class="prev">&#10094;</button>
+    <div class="slider" id="upcoming"></div>
+    <button class="next">&#10095;</button>
+  </div>
+  <h2>Comedy</h2>
+  <div class="slider-container">
+    <button class="prev">&#10094;</button>
+    <div class="slider" id="comedy"></div>
+    <button class="next">&#10095;</button>
+  </div>
+  <h2>K-Drama</h2>
+  <div class="slider-container">
+    <button class="prev">&#10094;</button>
+    <div class="slider" id="drama"></div>
+    <button class="next">&#10095;</button>
+  </div>
+  <h2>Horror</h2>
+  <div class="slider-container">
+    <button class="prev">&#10094;</button>
+    <div class="slider" id="horror"></div>
+    <button class="next">&#10095;</button>
+  </div>
+  <h2>Anime</h2>
+  <div class="slider-container">
+    <button class="prev">&#10094;</button>
+    <div class="slider" id="Anime"></div>
+    <button class="next">&#10095;</button>
+  </div>
+  <h2>Suspensful</h2>
+  <div class="slider-container">
+    <button class="prev">&#10094;</button>
+    <div class="slider" id="Suspenseful"></div>
+    <button class="next">&#10095;</button>
+  </div>
+  <h2>Crictical-Acclaimed</h2>
+  <div class="slider-container">
+    <button class="prev">&#10094;</button>
+    <div class="slider" id="Critically-Acclaimed"></div>
+    <button class="next">&#10095;</button>
+  </div>
+  
+
+
+  <script>
+    const API_KEY = "7ca4d695"; // Your OMDb API key as a string
+const scrollStep = 220;
+
+// Fetch movies from OMDb
+function fetchMovies(searchQuery, containerId) {
+  fetch(`https://www.omdbapi.com/?apikey=${API_KEY}&s=${searchQuery}`)
+    .then(res => res.json())
+    .then(data => {
+      const slider = document.getElementById(containerId);
+      if (data.Search) {
+        data.Search.forEach(movie => {
+          if (movie.Poster && movie.Poster !== "N/A") {
+            const img = document.createElement("img");
+            img.src = movie.Poster;
+            img.alt = movie.Title;
+            slider.appendChild(img);
+          }
+        });
+      } else {
+        console.log("No results for:", searchQuery);
+      }
+    })
+    .catch(err => console.error("Error fetching movies:", err));
+}
+
+
+
+    // Attach scrolling to each slider container
+    function attachScrollButtons() {
+      document.querySelectorAll(".slider-container").forEach(container => {
+        const slider = container.querySelector(".slider");
+        const nextBtn = container.querySelector(".next");
+        const prevBtn = container.querySelector(".prev");
+
+        nextBtn.addEventListener("click", () => {
+          slider.scrollBy({ left: scrollStep, behavior: "smooth" });
+        });
+
+        prevBtn.addEventListener("click", () => {
+          slider.scrollBy({ left: -scrollStep, behavior: "smooth" });
+        });
+      });
+    }
+
+    // Load movie lists
+    fetchMovies("avengers", "trending");
+    fetchMovies("batman", "topRated");
+    fetchMovies("spiderman", "upcoming");
+    fetchMovies("comedy", "comedy");
+fetchMovies("drama", "drama");
+fetchMovies("horror", "horror");
+fetchMovies("Anime", "Anime");
+fetchMovies("inception", "Suspenseful");
+fetchMovies("the godfather", "Critically-Acclaimed");
+
+
+    // Enable scrolling after DOM loads
+    attachScrollButtons();
+  </script>
+
+</body>
+</html>

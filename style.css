@@ -1,0 +1,375 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: black;
+  color: white;
+  font-family: Arial, sans-serif;
+}
+
+/* Main container */
+.main {
+  background-image: url('https://isquad.tv/wp-content/uploads/2018/08/Netflix-Background.jpg');
+  height: 100vh;
+  background-position: center center;
+  background-size: cover;
+  position: relative;
+}
+
+.main .box {
+  height: 100%;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.6);
+  position: absolute;
+  top: 0;
+  left: 0;
+  padding: 20px;
+}
+
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+}
+
+nav img {
+  height: 40px;
+}
+
+nav select,
+nav button {
+  margin-left: 10px;
+  padding: 5px 10px;
+  background-color: red;
+}
+
+.hero {
+  text-align: center;
+  margin-top: 150px;
+}
+
+.hero h1 {
+  font-size: 2.5rem;
+  margin-bottom: 20px;
+}
+
+.hero input {
+  padding: 10px;
+  width: 300px;
+  max-width: 80%;
+  margin-right: 10px;
+  margin-top:20px;
+  background-color: darkgray;
+}
+button{
+    background-color: red;
+    cursor: pointer;
+}
+.hero .item {
+  padding: 10px 20px;
+}
+
+.seperation,
+.parts {
+  height: 10px;
+  background-color: grey;
+  /*margin: px 0;*/
+}
+
+/* Section with image + text */
+.idea {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 30px;
+  padding: 60px 20px;
+  text-align: center;
+}
+
+.first,
+.second,
+.third {
+  flex: 1;
+  min-width: 300px;
+  color: white;
+}
+
+.second img,
+.third img {
+  max-width: 100%;
+  height: auto;
+}
+
+/* Alphabet section (img + text row) */
+.alphabet {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 40px;
+  padding: 60px 20px;
+  flex-wrap: wrap;
+}
+
+.alphabet img {
+  max-width: 100%;
+  width: 400px;
+  height: auto;
+  flex: 1;
+}
+
+.apple {
+  flex: 1;
+  max-width: 500px;
+  color: white;
+}
+
+.ball {
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.cat,
+.dog {
+  margin-top: 10px;
+}
+
+/* Chair section (image + video and text row) */
+
+
+
+.chair {
+  padding: 60px 20px;
+  background-color: black;
+  color: white;
+}
+
+.numerical {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 40px;
+  flex-wrap: wrap;
+}
+
+.sectors {
+  flex: 1;
+  max-width: 500px;
+}
+
+.sectors .one {
+  font-size: 2rem;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.sectors .two,
+.sectors .three {
+  margin-top: 10px;
+}
+
+/* ✅ Image and video wrapper */
+.media-wrapper {
+  position: relative;
+  flex: 1;
+  max-width: 600px;
+}
+
+.media-wrapper img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* ✅ Position video perfectly inside the TV screen */
+.media-wrapper video {
+  position: absolute;
+  top: 20.5%;
+  left: 13.6%;
+  width: 72%;
+  height: 55%;
+  object-fit: cover;
+  pointer-events: none;
+  z-index: 1;
+  border-radius: 4px;
+}
+
+/* ✅ Responsive layout for smaller screens */
+@media (max-width: 768px) {
+  .numerical {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .media-wrapper {
+    max-width: 100%;
+  }
+}
+
+
+/* Subjects section (kids image + text) */
+.subjects {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 40px;
+  padding: 60px 20px;
+}
+
+.subjects img {
+  width: 100%;
+  max-width: 400px;
+  height: auto;
+  flex: 1;
+}
+
+.physics {
+  flex: 1;
+  max-width: 500px;
+}
+
+.math {
+  font-size: 2rem;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+/* FAQ and email */
+.names {
+  padding: 60px 20px;
+}
+
+.pishong {
+  font-size: 2rem;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+.sonam input {
+  display: block;
+  width: 100%;
+  max-width: 600px;
+  margin: 10px auto;
+  padding: 10px;
+  background-color: darkgray;
+}
+
+.rahul {
+  margin-top: 40px;
+  text-align: center;
+}
+
+.tashi {
+  margin-top: 10px;
+}
+
+.tashi input {
+  padding: 10px;
+  width: 300px;
+  max-width: 80%;
+  margin-right: 10px;
+  background-color: darkgray;
+}
+
+.tashi button {
+  padding: 10px 20px;
+}
+
+/* Responsive styles */
+@media (max-width: 768px) {
+  .alphabet,
+  .numerical,
+  .subjects {
+    flex-direction: column;
+    text-align: center;
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+body {
+  background-color: #141414;
+  color: white;
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+.heading {
+  padding: 20px;
+  text-align: center;
+}
+
+.slider-container {
+  position: relative;
+  max-width: 100%;
+  overflow: hidden;
+  padding: 20px;
+}
+
+.slider {
+  display: flex;
+  gap: 10px;
+  transition: transform 0.4s ease-in-out;
+}
+
+.slider img {
+  width: 200px;
+  height: 300px;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+.prev, .next {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: rgba(0, 0, 0, 0.5);
+  border: none;
+  color: white;
+  font-size: 2rem;
+  padding: 10px;
+  cursor: pointer;
+  z-index: 2;
+}
+
+.prev:hover, .next:hover {
+  background-color: rgba(0, 0, 0, 0.8);
+}
+
+.prev {
+  left: 0;
+}
+
+.next {
+  right: 0;
+}
+.slider {
+  display: flex;
+  gap: 10px;
+  transition: transform 0.4s ease-in-out;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+
+  /* Hides scrollbar */
+  scrollbar-width: none; /* Firefox */
+}
+.slider::-webkit-scrollbar {
+  display: none; /* Chrome, Safari */
+}
+

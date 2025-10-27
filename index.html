@@ -1,0 +1,169 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="main">
+        <div class="box">
+            <nav>
+                <span><img src="https://www.pngall.com/wp-content/uploads/4/Netflix-Logo-HD.png" alt=""></span>
+                <div>
+                    <select>
+                        <option>English</option>
+                        <option>Hindi</option>
+                    </select>
+                    <button>sign in</button>
+                </div>
+            </nav>
+            
+            <div class="hero">
+                <h1>Enjoy big movies,hit series and more at 149.</h1>
+                <span>join today.camcel time</span>
+                <div>Read to watch? enter your Email start member now.</div>
+                <div>
+                    <input type="text" placeholder="Email Address">
+                    <button class="item" type="button">Get Started   ></button>
+                </div>
+            </div>
+            
+            
+        </div>
+    </div>
+    <div class="seperation"></div>
+    <section class="idea">
+        <div class="first">
+            <div class="firs">enjoy on your TV</div>
+            <div class="sec">watch on smart TV's anad playstations,Xbox,chromecard,apple TV,blue-rayfilms and more.</div>
+        </div>
+        <div class="second">
+            <img src="https://assets.nflxext.com/ffe/siteui/acquisition/ourStory/fuji/desktop/tv.png" alt="">
+            
+        </div>
+       
+        
+    </section>
+    <!--<div class="seperation"></div>-->
+    <div class="parts"></div>
+    <div class="alphabet">
+        <img src="https://assets.nflxext.com/ffe/siteui/acquisition/ourStory/fuji/desktop/mobile-0819.jpg" alt="">
+        <div class="apple">
+            <div class="ball">Download your shows </div>
+        
+            <div class="cat">to watch offline</div>
+        
+            <div class="dog">Save your favourites easily and always have something to watch</div>
+        </div>
+    </div>
+    <div class="seperation"></div>
+    <div class="chair">
+        <div class="numerical">
+            <div class="sectors">
+                <div class="one">Watch everywhere</div>
+                <div class="two">Stream unlimited movies and TV shows on your</div>
+                <div class="three">phone, tablet, laptop, and TV.</div>
+            </div>
+
+            <!-- ✅ Container for image and video overlay -->
+            <div class="media-wrapper">
+                <img src="https://assets.nflxext.com/ffe/siteui/acquisition/ourStory/fuji/desktop/tv.png" alt="TV" />
+                <video autoplay muted loop playsinline>
+                    <source src="https://cdn.midjourney.com/video/98d2315c-d05a-4be7-b1b9-2b79048add50/0.mp4" type="video/mp4" />
+                </video>
+            </div>
+        </div>
+    </div>
+
+    <div class="seperation"></div>
+    <div class="subjects">
+        <img src="https://occ-0-2590-2186.1.nflxso.net/dnm/api/v6/19OhWN2dO19C9txTON9tvTFtefw/AAAABVr8nYuAg0xDpXDv0VI9HUoH7r2aGp4TKRCsKNQrMwxzTtr-NlwOHeS8bCI2oeZddmu3nMYr3j9MjYhHyjBASb1FaOGYZNYvPBCL.png?r=54d" alt="">
+        <div class="physics">
+            <div class="math">Create profiles for kids</div>
+            <div class="english">Send children on adventures with their favourite characters in a</div>
+            <div class="science">space made just for them—free with your membership.</div>
+        </div>
+    </div>
+    <div class="seperation"></div>
+    <div class="names">
+        <div class="pishong">
+            Frequently Asked Questions
+        </div>
+        <div class="sonam">
+        
+            <input type="text" placeholder="How much does Netflix coast ?">
+            <input type="text" placeholder="How do I can cancel ?">
+            <input type="text" placeholder="What can I watch on Netflix ?">
+            <input type="text" placeholder="Is Netflix good for kids ?s">
+
+            
+        </div>
+        <div class="rahul">
+            <div class="sample">Ready to watch? Enter your email to create or restart your membership.</div>
+            <div class="tanzin">
+                <div class="tashi">
+                    <input  type="text" placeholder="Email address">
+                    <button class="item" type="button">Get started ></button>
+                </div>
+            </div>
+        </div>
+        
+    </div>
+<script>
+window.addEventListener("load", () => {
+  const buttons = document.querySelectorAll(".item");
+
+  buttons.forEach((button) => {
+    const input = button.previousElementSibling; // The input before the button
+    if (!input) return;
+
+    // Create error message element
+    let errorMessage = document.createElement("div");
+    errorMessage.style.color = "red";
+    errorMessage.style.marginTop = "8px";
+    errorMessage.style.fontSize = "0.9rem";
+    errorMessage.style.display = "none";
+    errorMessage.classList.add("email-error");
+
+    // Append error message after the input
+    input.insertAdjacentElement("afterend", errorMessage);
+
+    // Button click validation
+    button.addEventListener("click", () => {
+      const value = input.value.trim();
+
+      if (value === "" || !value.endsWith("@gmail.com")) {
+        errorMessage.textContent =
+          "Please enter a valid Gmail address (e.g., yourname@gmail.com)";
+        errorMessage.style.display = "block";
+
+        // Hide error automatically after 2 seconds
+        setTimeout(() => {
+          errorMessage.style.display = "none";
+        }, 2000);
+
+      } else {
+        errorMessage.style.display = "none";
+        window.location.href = "next.html";
+      }
+    });
+
+    // Hide error immediately when corrected
+    input.addEventListener("input", () => {
+      if (input.value.trim().endsWith("@gmail.com")) {
+        errorMessage.style.display = "none";
+      }
+    });
+  });
+});
+</script>
+
+
+
+    
+    
+</body>
+</html>
